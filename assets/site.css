@@ -75,6 +75,7 @@ html[data-app] .back a { color: var(--text-secondary); }
 .apphero-text img { border-radius: 20px; margin-bottom: 20px; }
 .apphero h1 { margin: 0; font-size: clamp(34px, 5vw, 50px); line-height: 1.08; font-weight: 600; letter-spacing: -1.2px; }
 .apphero .lead { color: var(--fg2); font-size: 18px; max-width: 480px; }
+.apphero .highlight { margin: 18px 0 0; max-width: 480px; padding-left: 14px; border-left: 3px solid var(--accent); font-size: 16px; line-height: 1.55; color: var(--fg); }
 .apphero .btn.solid { background: var(--fg); color: var(--bg); }
 .apphero .btn.ghost { border-color: var(--fg2); color: var(--fg); }
 .apphero .soon { opacity: .85; }

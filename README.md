@@ -4,7 +4,7 @@ Sito statico in 7 lingue (en, it, de, fr, es, pt-BR, pt-PT). Si rigenera con:
 
     python3 build.py            # scrive docs/ (GitHub Pages: branch main, cartella /docs)
 
-- `strings.py`  testi dell'interfaccia e descrizioni delle app (7 lingue)
+- `strings.py`  testi dell'interfaccia e descrizioni delle app (7 lingue); `APPHIGHLIGHT` aggiunge una riga in evidenza solo nella pagina dell'app (non nella scheda della home)
 - `content/legal/<app>/<privacy|terms>.<lingua>.html`  testi legali; se manca una lingua la pagina mostra l'inglese con un avviso
 - `assets/img/<lingua>/<app>-s01.jpg`, `-s03.jpg`  screenshot nella lingua della pagina: le slide 01 e 03 dell'App Store, rigenerate con `python3 shots.py` (serve Pillow e i checkout iOS in `~/Developer/iOS/<App>`)
 - `build.py`  link App Store / Google Play in `APPS` (se vuoti compare "In arrivo")

@@ -104,13 +104,15 @@ def home(lang):
 def app_page(lang, k):
     u, a, r = UI[lang], APPS[k], "../../"
     tag, desc, feats = APPCOPY[k][lang]
+    hl = APPHIGHLIGHT.get(k, {}).get(lang)
+    highlight = f'<p class="highlight">{E(hl)}</p>' if hl else ""
     f = "".join(f"<div><h3>{E(t)}</h3><p>{E(d)}</p></div>" for t, d in feats)
     body = f'''<main>
 <p class="back"><a href="../">{E(u["back_all"])}</a></p>
-<section class="apphero" style="--bg:{a["bg"]};--fg:{a["fg"]};--fg2:{a["fg2"]}">
+<section class="apphero" style="--bg:{a["bg"]};--fg:{a["fg"]};--fg2:{a["fg2"]};--accent:{a["accent"]}">
   <div class="apphero-text">
     <img src="{r}assets/img/{k}-icon.png" alt="" width="88" height="88">
-    <h1>{a["name"]}</h1><p class="lead">{E(tag)}. {E(desc)}</p>
+    <h1>{a["name"]}</h1><p class="lead">{E(tag)}. {E(desc)}</p>{highlight}
     <div class="cta">{store_buttons(lang, k)}</div>
   </div>
   <div class="shots"><img src="{r}assets/img/{lang}/{k}-s01.jpg" alt="" loading="lazy"><img src="{r}assets/img/{lang}/{k}-s03.jpg" alt="" loading="lazy"></div>

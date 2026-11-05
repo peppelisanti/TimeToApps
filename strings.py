@@ -179,19 +179,19 @@ APPCOPY = {
          [("Contador claro", "Os dias que faltam para o próximo ordenado, sempre à vista."), ("Orçamento diário", "Quanto pode gastar hoje para chegar descansado ao fim do mês."), ("Lembretes", "Uma notificação quando o dia de pagamento se aproxima.")]),
  },
  "sub": {
-  "en": ("Subscriptions under control", "Always know what will be charged and when, with a reminder on renewal day. We help you save by pointing out the subscriptions you barely use.",
+  "en": ("Subscriptions under control", "Know what you pay and when, with a reminder on renewal day. We help you save on what you barely use.",
          [("All in one place", "Streaming, apps, services: every subscription in a single list."), ("Renewal reminders", "A heads-up before you get charged."), ("Monthly and yearly totals", "See what your subscriptions really cost over time.")]),
-  "it": ("Abbonamenti sotto controllo", "Sai sempre cosa ti verrà addebitato e quando, con un avviso il giorno del rinnovo. Ti aiutiamo a risparmiare segnalandoti gli abbonamenti che usi poco.",
+  "it": ("Abbonamenti sotto controllo", "Sai cosa paghi e quando, con un avviso il giorno del rinnovo. Ti aiutiamo a risparmiare su ciò che usi poco.",
          [("Tutto in un posto", "Streaming, app, servizi: ogni abbonamento in un'unica lista."), ("Promemoria di rinnovo", "Un avviso prima che ti venga addebitato."), ("Totali mensili e annuali", "Scopri quanto costano davvero i tuoi abbonamenti nel tempo.")]),
-  "de": ("Abos im Griff", "Du weißt immer, was wann abgebucht wird, mit einer Erinnerung am Verlängerungstag. Wir helfen dir beim Sparen und zeigen dir, welche Abos du kaum nutzt.",
+  "de": ("Abos im Griff", "Wisse, was du wann zahlst, mit Erinnerung am Verlängerungstag. Wir helfen dir, bei kaum genutzten Abos zu sparen.",
          [("Alles an einem Ort", "Streaming, Apps, Dienste: jedes Abo in einer Liste."), ("Erinnerung vor Verlängerung", "Ein Hinweis, bevor abgebucht wird."), ("Monats- und Jahressummen", "Sieh, was deine Abos über die Zeit wirklich kosten.")]),
-  "fr": ("Vos abonnements sous contrôle", "Sachez toujours ce qui sera prélevé et quand, avec un rappel le jour du renouvellement. Nous vous aidons à économiser en vous signalant les abonnements que vous utilisez peu.",
+  "fr": ("Vos abonnements sous contrôle", "Sachez ce que vous payez et quand, avec un rappel à chaque échéance. Économisez sur ce que vous utilisez peu.",
          [("Tout au même endroit", "Streaming, apps, services : chaque abonnement dans une seule liste."), ("Rappels de renouvellement", "Un avertissement avant le prélèvement."), ("Totaux mensuels et annuels", "Voyez ce que vos abonnements coûtent vraiment dans le temps.")]),
-  "es": ("Tus suscripciones bajo control", "Sabrás siempre qué se te cobrará y cuándo, con un aviso el día de la renovación. Te ayudamos a ahorrar señalándote las suscripciones que apenas usas.",
+  "es": ("Tus suscripciones bajo control", "Sabrás qué pagas y cuándo, con un aviso al renovar. Te ayudamos a ahorrar en lo que apenas usas.",
          [("Todo en un lugar", "Streaming, apps, servicios: cada suscripción en una sola lista."), ("Avisos de renovación", "Un aviso antes de que te cobren."), ("Totales mensuales y anuales", "Descubre cuánto cuestan de verdad tus suscripciones con el tiempo.")]),
-  "pt-BR": ("Assinaturas sob controle", "Saiba sempre o que será cobrado e quando, com um lembrete no dia da renovação. Ajudamos você a economizar mostrando as assinaturas que você quase não usa.",
+  "pt-BR": ("Assinaturas sob controle", "Saiba o que você paga e quando, com lembrete no dia da renovação. Ajudamos você a economizar no que quase não usa.",
          [("Tudo em um só lugar", "Streaming, apps, serviços: cada assinatura em uma única lista."), ("Lembretes de renovação", "Um aviso antes da cobrança."), ("Totais mensais e anuais", "Veja quanto suas assinaturas realmente custam ao longo do tempo.")]),
-  "pt-PT": ("Subscrições sob controlo", "Saiba sempre o que vai ser cobrado e quando, com um lembrete no dia da renovação. Ajudamo-lo a poupar ao assinalar as subscrições que quase não usa.",
+  "pt-PT": ("Subscrições sob controlo", "Saiba o que paga e quando, com lembrete no dia da renovação. Ajudamo-lo a poupar no que quase não usa.",
          [("Tudo num só sítio", "Streaming, apps, serviços: cada subscrição numa única lista."), ("Lembretes de renovação", "Um aviso antes de ser cobrado."), ("Totais mensais e anuais", "Veja quanto as suas subscrições custam realmente ao longo do tempo.")]),
  },
  "restructure": {
@@ -209,5 +209,18 @@ APPCOPY = {
          [("Orçamento", "Defina um orçamento e veja como ele se sustenta conforme a obra avança."), ("Gastos", "Registre cada custo por cômodo ou por serviço."), ("Documentos", "Notas fiscais, orçamentos, contratos e recibos em um só lugar, em foto ou PDF.")]),
   "pt-PT": ("A sua obra, organizada", "Orçamento, despesas e fornecedores da obra em casa, finalmente num só sítio.",
          [("Orçamento", "Defina um orçamento e veja como se comporta com o avanço da obra."), ("Despesas", "Registe cada custo por divisão ou por trabalho."), ("Documentos", "Faturas, orçamentos, contratos e recibos num só sítio, em fotografia ou PDF.")]),
+ },
+}
+
+# One extra line under the description on an app's own page (not on the home card). Optional per app.
+APPHIGHLIGHT = {
+ "sub": {
+  "en": "The feature that makes the difference: after every renewal you say how much you used it, and the Usage recap (Pro) shows how much you spend on things you don't use.",
+  "it": "La funzione che fa la differenza: dopo ogni rinnovo indichi quanto hai usato l'abbonamento, e il Recap utilizzo (Pro) ti mostra quanto spendi per ciò che non usi.",
+  "de": "Die Funktion, die den Unterschied macht: Nach jeder Verlängerung gibst du an, wie viel du das Abo genutzt hast, und der Nutzungsrückblick (Pro) zeigt dir, wie viel du für Ungenutztes ausgibst.",
+  "fr": "La fonction qui fait la différence : après chaque renouvellement, vous indiquez combien vous avez utilisé l'abonnement, et le Bilan d'utilisation (Pro) vous montre combien vous dépensez pour ce que vous n'utilisez pas.",
+  "es": "La función que marca la diferencia: tras cada renovación indicas cuánto has usado la suscripción, y el Resumen de uso (Pro) te muestra cuánto gastas en lo que no usas.",
+  "pt-BR": "O recurso que faz a diferença: depois de cada renovação você diz quanto usou a assinatura, e o Resumo de uso (Pro) mostra quanto você gasta com o que não usa.",
+  "pt-PT": "A funcionalidade que faz a diferença: depois de cada renovação indica quanto usou a subscrição, e o Resumo de utilização (Pro) mostra-lhe quanto gasta com o que não usa.",
  },
 }
