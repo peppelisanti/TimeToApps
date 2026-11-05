@@ -5,7 +5,7 @@ Leggi README.md per la struttura. Rigenera sempre con `python3 build.py` dopo og
 
 ## Stato
 - Fatto: home, pagine app (Payday, Sub, Restructure), Privacy/Termini per app, selettore lingua, CNAME timetoapps.app, canonical/hreflang.
-- Dominio timetoapps.app comprato su Cloudflare. Nulla è ancora online: manca repo GitHub + Pages + DNS.
+- Dominio timetoapps.app comprato su Cloudflare. Repo pubblico github.com/peppelisanti/TimeToApps (main), Pages da main /docs con dominio timetoapps.app (2026-11-05). Manca il DNS su Cloudflare, poi Enforce HTTPS.
 - Traduzioni legali: SOLO `content/legal/payday/privacy.it.html` (pilota, in attesa di approvazione dell'utente su tono e termini).
   Mancano: 6 documenti (payday/sub/restructure × privacy/terms) × 6 lingue (it, de, fr, es, pt-BR, pt-PT), tranne il pilota.
   Sorgenti inglesi in content/legal/<app>/<doc>.en.html (prima riga: <!-- updated: ... -->). Ogni traduzione mantiene struttura h2/p,
@@ -19,7 +19,7 @@ Leggi README.md per la struttura. Rigenera sempre con `python3 build.py` dopo og
 - Email di supporto per ora support.timetoapps@gmail.com (eventuale alias sul dominio con Cloudflare Email Routing, poi).
 
 ## Da fare (richiede account dell'utente)
-1. Repo GitHub pubblico peppelisanti/TimeToApps, push (gh auth necessario).
-2. Settings → Pages: main, /docs, custom domain timetoapps.app, Enforce HTTPS.
+1. Fatto: repo e push.
+2. Fatto: Pages (main, /docs, timetoapps.app). Resta Enforce HTTPS quando il certificato è pronto (dopo il DNS).
 3. Cloudflare DNS (nuvola grigia): 4 record A @ → 185.199.108.153/109.153/110.153/111.153; CNAME www → peppelisanti.github.io.
 4. Completare le traduzioni legali e rigenerare.
