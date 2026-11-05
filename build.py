@@ -87,7 +87,7 @@ def home(lang):
         cards += f'''<a class="appcard" href="{k}/" style="--bg:{a["bg"]};--fg:{a["fg"]};--fg2:{a["fg2"]}">
   <div class="apphead"><img src="{r}assets/img/{k}-icon.png" alt="" width="64" height="64"><div><div class="appname">{a["name"]}</div><div class="apptag">{E(tag)}</div></div></div>
   <p>{E(desc)}</p>
-  <img class="shot" src="{r}assets/img/{k}-s01.jpg" alt="" loading="lazy">
+  <img class="shot" src="{r}assets/img/{lang}/{k}-s01.jpg" alt="" loading="lazy">
 </a>'''
     legal = ""
     for k, a in APPS.items():
@@ -113,7 +113,7 @@ def app_page(lang, k):
     <h1>{a["name"]}</h1><p class="lead">{E(tag)}. {E(desc)}</p>
     <div class="cta">{store_buttons(lang, k)}</div>
   </div>
-  <div class="shots"><img src="{r}assets/img/{k}-s01.jpg" alt="" loading="lazy"><img src="{r}assets/img/{k}-s03.jpg" alt="" loading="lazy"></div>
+  <div class="shots"><img src="{r}assets/img/{lang}/{k}-s01.jpg" alt="" loading="lazy"><img src="{r}assets/img/{lang}/{k}-s03.jpg" alt="" loading="lazy"></div>
 </section>
 <section class="feats cards">{f}</section>
 <section class="legalbox row"><div><h2>{E(u["legal_h"])}</h2><p>{E(u["legal_p"])}</p></div>
