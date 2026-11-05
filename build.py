@@ -12,8 +12,8 @@ EMAIL = "support.timetoapps@gmail.com"
 # Store links: fill in when the apps are live. None → "coming soon" badge.
 APPS = {
  "payday": dict(name="Time to Payday", ios=None, android=None, bg="#0F3A2E", fg="#fff", fg2="#C9DDD2", accent="#A6E08A", on_accent="#0F3A2E", action="#136B4A", letter="P"),
- "sub": dict(name="Time to Sub", ios=None, android=None, bg="#0D2E3F", fg="#fff", fg2="#C3D6DD", accent="#F2986E", on_accent="#0D2E3F", action="#17668A", letter="S"),
- "restructure": dict(name="Time to Restructure", ios=None, android=None, bg="#241C42", fg="#fff", fg2="#CFC8E8", accent="#F5C451", on_accent="#241C42", action="#4B3BA6", letter="R"),
+ "sub": dict(name="Time to Sub", ios=None, android=None, bg="#081B24", fg="#fff", fg2="#C3D6DD", accent="#F2986E", on_accent="#0D2E3F", action="#17668A", letter="S"),
+ "restructure": dict(name="Time to Restructure", ios=None, android=None, bg="#151027", fg="#fff", fg2="#CFC8E8", accent="#F5C451", on_accent="#241C42", action="#4B3BA6", letter="R"),
 }
 E = html.escape
 
