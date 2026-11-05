@@ -1,0 +1,104 @@
+/* Time to Apps site. Legal pages reuse legal.css roles (data-app); the rest is a neutral shell. */
+:root { --s-bg:#F6F6F2; --s-ink:#14181A; --s-ink2:#4A5357; --s-line:#E3E3DC; --s-card:#FFFFFF; --s-dark:#14181A; --s-on-dark:#FFFFFF; }
+@media (prefers-color-scheme: dark) {
+  :root { --s-bg:#101214; --s-ink:#F1F2EE; --s-ink2:#A3ABAE; --s-line:#262B2E; --s-card:#181C1F; --s-dark:#F1F2EE; --s-on-dark:#101214; }
+}
+body { background: var(--s-bg); color: var(--s-ink); margin: 0; }
+[data-app] body, body { background: var(--s-bg); }
+html[data-app] body { background: var(--background); color: var(--text); }
+.site { max-width: 1120px; margin: 0 auto; padding: 0 24px; min-height: 100vh; display: flex; flex-direction: column; }
+.site main { flex: 1; }
+a { text-underline-offset: 2px; }
+
+.top { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between; padding: 20px 0; }
+.top .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 600; font-size: 19px; color: inherit; }
+.top .mark { width: 32px; height: 32px; border-radius: 9px; background: var(--s-dark); color: var(--s-on-dark); display: grid; place-items: center; font-size: 15px; }
+.top nav { display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: center; font-size: 15px; font-weight: 600; }
+.top nav > a { color: var(--s-ink2); text-decoration: none; }
+.top nav > a:hover { color: var(--s-ink); }
+html[data-app] .top nav > a { color: var(--text-secondary); }
+
+.langs { position: relative; }
+.langs summary { list-style: none; cursor: pointer; padding: 6px 12px; border: 1px solid var(--s-line); border-radius: 999px; color: var(--s-ink2); }
+.langs summary::-webkit-details-marker { display: none; }
+.langs summary::after { content: " ▾"; font-size: 11px; }
+.langs > div { position: absolute; right: 0; top: calc(100% + 6px); z-index: 5; min-width: 190px; background: var(--s-card); border: 1px solid var(--s-line); border-radius: 14px; padding: 6px; display: grid; }
+.langs > div a { padding: 8px 12px; border-radius: 8px; text-decoration: none; color: var(--s-ink); font-weight: 400; }
+.langs > div a:hover { background: var(--s-bg); }
+.langs > div a[aria-current] { font-weight: 600; }
+html[data-app] .langs summary { border-color: var(--border); color: var(--text-secondary); }
+html[data-app] .langs > div { background: var(--surface); border-color: var(--border); }
+html[data-app] .langs > div a { color: var(--text); }
+html[data-app] .langs > div a:hover { background: var(--background); }
+
+.hero-home { padding: 64px 0 48px; }
+.eyebrow { margin: 0 0 18px; font-size: 13px; font-weight: 600; color: var(--s-ink2); letter-spacing: .08em; text-transform: uppercase; }
+.hero-home h1 { margin: 0; max-width: 760px; font-size: clamp(36px, 6vw, 60px); line-height: 1.07; font-weight: 600; letter-spacing: -1.5px; }
+.lead { margin: 20px 0 0; max-width: 620px; font-size: 19px; line-height: 1.55; color: var(--s-ink2); }
+.cta { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 12px; }
+.btn { display: inline-block; padding: 13px 22px; border-radius: 14px; font-weight: 600; text-decoration: none; font-size: 15px; border: 1.5px solid transparent; }
+.btn.solid.dark { background: var(--s-dark); color: var(--s-on-dark); }
+.btn.ghost.dark { border-color: var(--s-dark); color: var(--s-ink); }
+.btn.action { background: var(--action); color: var(--on-action); }
+.btn.outline { border-color: var(--action); color: var(--link); }
+
+.grid3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.appcard { text-decoration: none; border-radius: 28px; background: var(--bg); color: var(--fg); padding: 28px 28px 0; display: flex; flex-direction: column; gap: 14px; overflow: hidden; transition: transform .15s; }
+.appcard:hover { transform: translateY(-3px); }
+.appcard:focus-visible { outline: 3px solid var(--s-ink); outline-offset: 3px; }
+.apphead { display: flex; align-items: center; gap: 14px; }
+.apphead img { border-radius: 15px; flex: none; }
+.appname { font-size: 21px; font-weight: 600; }
+.apptag { font-size: 14px; color: var(--fg2); }
+.appcard p { margin: 0; font-size: 15px; line-height: 1.55; color: var(--fg2); }
+.appcard .shot { width: 74%; align-self: center; margin-top: 8px; margin-bottom: -70px; border-radius: 18px; }
+#apps { padding-bottom: 96px; }
+
+.feats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; padding: 40px 0; }
+.feats h3 { margin: 0 0 6px; font-size: 18px; font-weight: 600; }
+.feats p { margin: 0; font-size: 15px; line-height: 1.6; color: var(--s-ink2); }
+.feats.cards { gap: 20px; padding: 24px 0; }
+.feats.cards > div { background: var(--s-card); border: 1px solid var(--s-line); border-radius: 20px; padding: 24px; }
+
+.legalbox { background: var(--s-card); border: 1px solid var(--s-line); border-radius: 24px; padding: 28px 32px; margin: 16px 0 40px; }
+.legalbox h2 { margin: 0 0 4px; font-size: 24px; font-weight: 600; }
+.legalbox p { margin: 0 0 18px; font-size: 15px; color: var(--s-ink2); }
+.legalbox.row { display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; align-items: center; }
+.legalbox.row p, .legalbox.row .cta { margin: 0; }
+.legalgrid > div { display: flex; flex-direction: column; gap: 6px; font-size: 15px; }
+
+.back { margin: 8px 0 16px; font-size: 14px; font-weight: 600; }
+.back a { color: var(--s-ink2); text-decoration: none; }
+html[data-app] .back a { color: var(--text-secondary); }
+.apphero { background: var(--bg); color: var(--fg); border-radius: 32px; padding: 48px; display: flex; flex-wrap: wrap; gap: 40px; align-items: center; overflow: hidden; margin-bottom: 72px; }
+.apphero-text { flex: 1 1 380px; min-width: 0; }
+.apphero-text img { border-radius: 20px; margin-bottom: 20px; }
+.apphero h1 { margin: 0; font-size: clamp(34px, 5vw, 50px); line-height: 1.08; font-weight: 600; letter-spacing: -1.2px; }
+.apphero .lead { color: var(--fg2); font-size: 18px; max-width: 480px; }
+.apphero .btn.solid { background: var(--fg); color: var(--bg); }
+.apphero .btn.ghost { border-color: var(--fg2); color: var(--fg); }
+.apphero .soon { opacity: .85; }
+.shots { flex: 1 1 300px; min-width: 0; display: flex; justify-content: center; gap: 18px; align-items: flex-start; }
+.shots img { width: 46%; border-radius: 20px; margin-bottom: -170px; }
+.shots img + img { margin-top: 48px; }
+
+.legalpage { max-width: 44rem; width: 100%; margin: 0 auto; padding-bottom: 32px; }
+.tabs { display: flex; gap: 8px; margin: 0 0 16px; font-size: 14px; font-weight: 600; flex-wrap: wrap; }
+.tabs a { padding: 8px 16px; border-radius: 999px; border: 1.5px solid var(--border); color: var(--text-secondary); text-decoration: none; }
+.tabs a[aria-current] { background: var(--action); border-color: var(--action); color: var(--on-action); }
+.note { margin: 0 0 16px; padding: 12px 16px; border-radius: 12px; background: var(--brand-tint); color: var(--on-brand-tint); font-size: 14px; }
+.note a { color: inherit; font-weight: 600; }
+.legalpage .hero { margin-top: 0; }
+.legalpage .card h2:first-child { margin-top: 20px; }
+
+.foot { margin-top: 32px; border-top: 1px solid var(--s-line); padding: 24px 0 32px; display: flex; flex-wrap: wrap; gap: 8px 16px; justify-content: space-between; font-size: 14px; color: var(--s-ink2); }
+.foot a { color: inherit; font-weight: 600; text-decoration: none; }
+html[data-app] .foot { border-color: var(--border); color: var(--text-secondary); }
+
+@media (max-width: 860px) {
+  .grid3, .feats { grid-template-columns: 1fr; }
+  .appcard .shot { width: 60%; }
+  .apphero { padding: 32px 24px; margin-bottom: 80px; }
+  .shots img { margin-bottom: -110px; }
+  .site { padding: 0 16px; }
+}

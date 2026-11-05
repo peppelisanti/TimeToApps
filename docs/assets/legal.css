@@ -1,0 +1,96 @@
+/* Time to Apps — legal pages. Roles mirror the apps' Colors.xcassets (docs/design-system.md);
+   each app only swaps the role values via data-app. Open Sans, two weights (400/600), no shadows. */
+@font-face { font-family: "Open Sans"; font-weight: 400; font-display: swap; src: url("fonts/OpenSans-Regular.ttf") format("truetype"); }
+@font-face { font-family: "Open Sans"; font-weight: 600; font-display: swap; src: url("fonts/OpenSans-SemiBold.ttf") format("truetype"); }
+
+:root, [data-app="sub"] {
+  --background: #E9F0F3; --surface: #FFFFFF; --border: #D5E0E4;
+  --text: #10191D; --text-secondary: #56676E;
+  --hero: #0D2E3F; --on-hero: #FFFFFF; --on-hero-secondary: #C3D6DD;
+  --action: #17668A; --on-action: #FFFFFF; --link: #17668A;
+  --accent: #F2986E; --on-accent: #0D2E3F; --brand-tint: #DAF0F8; --on-brand-tint: #17668A;
+}
+[data-app="payday"] {
+  --background: #F6F8F5; --surface: #FFFFFF; --border: #DCE3DB;
+  --text: #121A16; --text-secondary: #5D6B63;
+  --hero: #0F3A2E; --on-hero: #FFFFFF; --on-hero-secondary: #C9DDD2;
+  --action: #136B4A; --on-action: #FFFFFF; --link: #136B4A;
+  --accent: #A6E08A; --on-accent: #0F3A2E; --brand-tint: #DDF2E6; --on-brand-tint: #136B4A;
+}
+[data-app="restructure"] {
+  --background: #EFEDF5; --surface: #FFFFFF; --border: #DEDAEA;
+  --text: #14102A; --text-secondary: #5E5A78;
+  --hero: #241C42; --on-hero: #FFFFFF; --on-hero-secondary: #CFC8E8;
+  --action: #4B3BA6; --on-action: #FFFFFF; --link: #4B3BA6;
+  --accent: #F5C451; --on-accent: #241C42; --brand-tint: #E7E3F5; --on-brand-tint: #4B3BA6;
+}
+@media (prefers-color-scheme: dark) {
+  :root, [data-app="sub"] {
+    --background: #061A24; --surface: #0F2733; --border: #22505F;
+    --text: #EEF4F6; --text-secondary: #9FB5BE;
+    --hero: #163847; --on-hero: #EEF4F6; --on-hero-secondary: #9FB5BE;
+    --action: #E6956B; --on-action: #061A24; --link: #F2986E;
+    --brand-tint: #163847; --on-brand-tint: #93D0E8;
+  }
+  [data-app="payday"] {
+    --background: #071F17; --surface: #0E2A21; --border: #23493B;
+    --text: #EEF4EF; --text-secondary: #9DB3A8;
+    --hero: #0E2A21; --on-hero: #EEF4EF; --on-hero-secondary: #9DB3A8;
+    --action: #92CC75; --on-action: #071F17; --link: #A6E08A;
+    --brand-tint: #163A2E; --on-brand-tint: #A6E08A;
+  }
+  [data-app="restructure"] {
+    --background: #0F0B24; --surface: #1B1535; --border: #3A3060;
+    --text: #F0EEF8; --text-secondary: #A9A1C8;
+    --hero: #2C2350; --on-hero: #F0EEF8; --on-hero-secondary: #A9A1C8;
+    --action: #F2C14E; --on-action: #0F0B24; --link: #F5C451;
+    --brand-tint: #2C2350; --on-brand-tint: #C9BFFF;
+  }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--background); color: var(--text);
+  font: 400 16px/1.6 "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+a { color: var(--link); text-underline-offset: 2px; }
+strong { font-weight: 600; }
+.wrap { max-width: 44rem; margin: 0 auto; padding: 16px 16px 48px; }
+
+.topbar { display: flex; align-items: center; justify-content: space-between; padding: 8px 0 16px; font-size: 14px; }
+.topbar .brand { color: var(--text); font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 10px; }
+.topbar .mark { width: 28px; height: 28px; border-radius: 7px; background: var(--hero); color: var(--on-hero);
+  display: grid; place-items: center; font-size: 12px; font-weight: 600; }
+.topbar nav { display: flex; gap: 16px; }
+.topbar nav a { text-decoration: none; color: var(--text-secondary); }
+.topbar nav a[aria-current="page"] { color: var(--link); font-weight: 600; }
+
+.hero { background: var(--hero); color: var(--on-hero); border-radius: 20px; padding: 28px 24px; margin-bottom: 16px; }
+.hero h1 { margin: 0 0 6px; font-size: 28px; line-height: 1.25; font-weight: 600; }
+.hero p { margin: 0; color: var(--on-hero-secondary); font-size: 14px; }
+.hero .pill { display: inline-block; margin-bottom: 14px; padding: 2px 10px; border-radius: 999px;
+  background: var(--accent); color: var(--on-accent); font-size: 13px; font-weight: 600; }
+
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 4px 24px 12px; }
+.card h2 { margin: 24px 0 6px; font-size: 18px; line-height: 1.35; font-weight: 600; }
+.card p, .card li { color: var(--text); }
+.card p { margin: 0 0 12px; }
+.card ul { margin: 0 0 12px; padding-left: 1.25rem; }
+.card li { margin-bottom: 4px; }
+.card li::marker { color: var(--text-secondary); }
+
+.links { display: grid; gap: 12px; margin-bottom: 16px; }
+.link-card { display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 16px 20px;
+  color: var(--text); text-decoration: none; font-weight: 600; }
+.link-card small { display: block; font-weight: 400; font-size: 14px; color: var(--text-secondary); }
+.link-card .chev { width: 28px; height: 28px; border-radius: 50%; background: var(--brand-tint); color: var(--on-brand-tint);
+  display: grid; place-items: center; flex: none; }
+.link-card:focus-visible, a:focus-visible { outline: 2px solid var(--action); outline-offset: 2px; }
+
+.contact { color: var(--text-secondary); font-size: 14px; margin: 16px 4px 0; }
+.footer { margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--border); color: var(--text-secondary); font-size: 13px;
+  display: flex; flex-wrap: wrap; gap: 6px 16px; justify-content: space-between; }
+.footer a { color: var(--text-secondary); }
+@media (max-width: 480px) { .hero { padding: 24px 20px; } .card { padding: 4px 20px 12px; } .hero h1 { font-size: 24px; } }
