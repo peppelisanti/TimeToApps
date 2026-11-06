@@ -14,6 +14,8 @@ APPS = {
  "payday": dict(name="Time to Payday", ios=None, android=None, bg="#0F3A2E", fg="#fff", fg2="#C9DDD2", accent="#A6E08A", on_accent="#0F3A2E", action="#136B4A", letter="P"),
  "sub": dict(name="Time to Sub", ios=None, android=None, bg="#081B24", fg="#fff", fg2="#C3D6DD", accent="#F2986E", on_accent="#0D2E3F", action="#17668A", letter="S"),
  "restructure": dict(name="Time to Restructure", ios=None, android=None, bg="#151027", fg="#fff", fg2="#CFC8E8", accent="#F5C451", on_accent="#241C42", action="#4B3BA6", letter="R"),
+ # Non ancora in uscita: solo le pagine legali (servono per AdMob / App Store Connect); nessuna scheda in home né pagina app.
+ "event": dict(name="Time to Event", ios=None, android=None, bg="#1B2A4A", fg="#fff", fg2="#C5CEE6", accent="#F26B5B", on_accent="#1B2A4A", action="#C8412F", letter="E", listed=False),
 }
 E = html.escape
 
@@ -83,6 +85,7 @@ def home(lang):
     u, depth, r = UI[lang], 1, "../"
     cards = ""
     for k, a in APPS.items():
+        if not a.get("listed", True): continue
         tag, desc, _ = APPCOPY[k][lang]
         cards += f'''<a class="appcard" href="{k}/" style="--bg:{a["bg"]};--fg:{a["fg"]};--fg2:{a["fg2"]}">
   <div class="apphead"><img src="{r}assets/img/{k}-icon.png" alt="" width="64" height="64"><div><div class="appname">{a["name"]}</div><div class="apptag">{E(tag)}</div></div></div>
@@ -91,6 +94,7 @@ def home(lang):
 </a>'''
     legal = ""
     for k, a in APPS.items():
+        if not a.get("listed", True): continue
         legal += f'<div><strong>{a["name"]}</strong><a href="{k}/privacy/" style="color:{a["action"]}">{E(u["privacy"])}</a><a href="{k}/terms/" style="color:{a["action"]}">{E(u["terms"])}</a></div>'
     body = f'''<main>
 <section class="hero-home"><p class="eyebrow">{E(u["eyebrow"])}</p><h1>{E(u["h1"])}</h1><p class="lead">{E(u["lead"])}</p>
@@ -142,14 +146,14 @@ def legal_page(lang, k, doc):
     cp = ' aria-current="page"' if doc == "privacy" else ""
     ct = ' aria-current="page"' if doc == "terms" else ""
     body = """<main class="legalpage">
-<p class="back"><a href="../">&larr; %s</a></p>
+<p class="back"><a href="%s">&larr; %s</a></p>
 <div class="tabs"><a href="../privacy/"%s>%s</a><a href="../terms/"%s>%s</a></div>
 <header class="hero"><h1>%s</h1><p>%s &middot; %s: %s</p></header>
 %s
 <article class="card">
 %s
 </article>
-</main>""" % (a["name"], cp, E(u["privacy"]), ct, E(u["terms"]), E(title), a["name"], E(u["last_updated"]), fmt_date(date_en, lang), note, text)
+</main>""" % ("../" if a.get("listed", True) else "../../", a["name"], cp, E(u["privacy"]), ct, E(u["terms"]), E(title), a["name"], E(u["last_updated"]), fmt_date(date_en, lang), note, text)
     return page(lang, "%s/%s/" % (k, doc), 3, "%s — %s" % (title, a["name"]), body, theme=k)
 
 def write(path, content):
@@ -163,7 +167,8 @@ def main():
     for lang in LANGS:
         write(OUT / lang / "index.html", home(lang)); n += 1
         for k in APPS:
-            write(OUT / lang / k / "index.html", app_page(lang, k)); n += 1
+            if APPS[k].get("listed", True):
+                write(OUT / lang / k / "index.html", app_page(lang, k)); n += 1
             for doc in ("privacy", "terms"):
                 write(OUT / lang / k / doc / "index.html", legal_page(lang, k, doc)); n += 1
     langs_js = str(LANGS).replace("'", '"')
