@@ -15,6 +15,8 @@ Leggi README.md per la struttura. Rigenera sempre con `python3 build.py` dopo og
 
 - 6 nov 2026: aggiunte le pagine legali (solo en) di **Time to Event** (`content/legal/event/`), senza scheda in home né pagina app (`listed=False` in `APPS`): URL `https://timetoapps.app/en/event/privacy/` e `/terms/`. Quando l'app esce: togliere `listed=False`, aggiungere `APPCOPY["event"]`, icona `assets/img/event-icon.png` e screenshot `-s01/-s03`.
 
+- 6 nov 2026: `app-ads.txt` (sorgente nella radice del repo, copiato da `build.py` in `docs/`): una riga Google per l'editore AdMob `pub-5104020576867316`, valida per tutte le app. Nelle schede App Store il "Sito web dello sviluppatore" / URL di marketing deve essere sul dominio `timetoapps.app`.
+
 ## Decisioni
 - Gli URL legali già inviati agli store (peppelisanti.github.io/<App>-legal) restano online e invariati.
 - I link store/app verso il nuovo sito si cambiano solo con la nuova build di ogni app.

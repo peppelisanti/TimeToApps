@@ -180,6 +180,8 @@ for(var j=0;j<L.length;j++){{if(L[j].toLowerCase()===c.toLowerCase())f=L[j];}}
 if(!f){{var b=c.slice(0,2).toLowerCase();if(b==="pt")f=(c.toLowerCase()==="pt-br")?"pt-BR":"pt-PT";else for(var k=0;k<L.length;k++)if(L[k]===b)f=b;}}
 if(f){{location.replace(f+"/");return;}}}}location.replace("en/");}})();</script></head>
 <body><p><a href="en/">Time to Apps</a></p></body></html>''')
+    # app-ads.txt: AdMob lo cerca nella radice del sito dello sviluppatore indicato nelle schede App Store.
+    write(OUT / "app-ads.txt", (ROOT / "app-ads.txt").read_text(encoding="utf-8"))
     write(OUT / ".nojekyll", "")
     write(OUT / "CNAME", os.environ.get("CNAME", "timetoapps.app"))
     print(f"Generated {n} pages in {OUT}")
