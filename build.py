@@ -9,6 +9,8 @@ OUT = ROOT / "docs"
 DOMAIN = os.environ.get("SITE_URL", "https://timetoapps.app").rstrip("/")   # e.g. https://timetoapps.app (optional, for hreflang/canonical)
 EMAIL = "support.timetoapps@gmail.com"
 INSTAGRAM = "https://www.instagram.com/timetoapps.app/"
+# Cloudflare Web Analytics (cookieless). JS snippet: the domain is DNS-only, so Cloudflare cannot inject it.
+CF_BEACON = """<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "945b2dc9ff8a4fd398c6f74aa1a7d47d"}'></script>"""
 
 # Store links: fill in when the apps are live. None → "coming soon" badge.
 APPS = {
@@ -52,6 +54,7 @@ def page(lang, tail, depth, title, body, theme=None, desc=None):
 <link rel="apple-touch-icon" href="{r}assets/img/logo-180.png">
 <link rel="stylesheet" href="{r}assets/legal.css">
 <link rel="stylesheet" href="{r}assets/site.css">
+{CF_BEACON}
 </head>
 <body>
 <div class="site">
