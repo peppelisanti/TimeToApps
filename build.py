@@ -14,8 +14,7 @@ APPS = {
  "payday": dict(name="Time to Payday", ios=None, android=None, bg="#0F3A2E", fg="#fff", fg2="#C9DDD2", accent="#A6E08A", on_accent="#0F3A2E", action="#136B4A", letter="P"),
  "sub": dict(name="Time to Sub", ios=None, android=None, bg="#081B24", fg="#fff", fg2="#C3D6DD", accent="#F2986E", on_accent="#0D2E3F", action="#17668A", letter="S"),
  "restructure": dict(name="Time to Restructure", ios=None, android=None, bg="#151027", fg="#fff", fg2="#CFC8E8", accent="#F5C451", on_accent="#241C42", action="#4B3BA6", letter="R"),
- # Non ancora in uscita: solo le pagine legali (servono per AdMob / App Store Connect); nessuna scheda in home né pagina app.
- "event": dict(name="Time to Event", ios=None, android=None, bg="#1B2A4A", fg="#fff", fg2="#C5CEE6", accent="#F26B5B", on_accent="#1B2A4A", action="#C8412F", letter="E", listed=False),
+ "event": dict(name="Time to Event", ios=None, android=None, bg="#1B2A4A", fg="#fff", fg2="#C5CEE6", accent="#F26B5B", on_accent="#1B2A4A", action="#C8412F", letter="E"),
 }
 E = html.escape
 
@@ -48,14 +47,15 @@ def page(lang, tail, depth, title, body, theme=None, desc=None):
 <title>{E(title)}</title>
 <meta name="description" content="{E(desc or u["desc_meta"])}">
 {alts}
-<link rel="icon" href="{r}assets/img/payday-icon.png">
+<link rel="icon" href="{r}assets/img/logo.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="{r}assets/img/logo-180.png">
 <link rel="stylesheet" href="{r}assets/legal.css">
 <link rel="stylesheet" href="{r}assets/site.css">
 </head>
 <body>
 <div class="site">
 <header class="top">
-  <a class="brand" href="{r}{lang}/"><span class="mark" aria-hidden="true">T</span>Time to Apps</a>
+  <a class="brand" href="{r}{lang}/"><svg class="mark" viewBox="0 0 1024 1024" aria-hidden="true"><rect width="1024" height="1024" rx="230" fill="var(--s-dark)"/><g transform="translate(512 512) scale(1.08) translate(-512 -539)"> <rect x="232" y="212" width="560" height="96" rx="48" fill="var(--s-on-dark)"/> <rect x="367" y="212" width="10" height="96" fill="var(--s-dark)"/> <rect x="647" y="212" width="10" height="96" fill="var(--s-dark)"/> <rect x="464" y="212" width="96" height="600" rx="48" fill="var(--s-on-dark)"/> <circle cx="512" cy="812" r="78" fill="var(--s-dark)"/> <circle cx="512" cy="812" r="54" fill="#A6E08A"/></g></svg>Time to Apps</a>
   <nav>
     <a href="{r}{lang}/#apps">{E(u["nav_apps"])}</a>
     <a href="{r}{lang}/#legal">{E(u["nav_legal"])}</a>
@@ -99,7 +99,7 @@ def home(lang):
     body = f'''<main>
 <section class="hero-home"><p class="eyebrow">{E(u["eyebrow"])}</p><h1>{E(u["h1"])}</h1><p class="lead">{E(u["lead"])}</p>
 <div class="cta"><a class="btn solid dark" href="#apps">{E(u["cta_apps"])}</a><a class="btn ghost dark" href="#contact">{E(u["cta_contact"])}</a></div></section>
-<section id="apps" class="grid3">{cards}</section>
+<section id="apps" class="grid2">{cards}</section>
 <section class="feats"><div><h3>{E(u["f1t"])}</h3><p>{E(u["f1d"])}</p></div><div><h3>{E(u["f2t"])}</h3><p>{E(u["f2d"])}</p></div><div><h3>{E(u["f3t"])}</h3><p>{E(u["f3d"])}</p></div></section>
 <section id="legal" class="legalbox"><h2>{E(u["legal_h"])}</h2><p>{E(u["legal_p"])}</p><div class="grid3 legalgrid">{legal}</div></section>
 </main>'''

@@ -4,7 +4,7 @@ Sito statico in 7 lingue (en, it, de, fr, es, pt-BR, pt-PT), generato da `build.
 Leggi README.md per la struttura. Rigenera sempre con `python3 build.py` dopo ogni modifica a strings/content/assets.
 
 ## Stato
-- Fatto: home, pagine app (Payday, Sub, Restructure), Privacy/Termini per app, selettore lingua, CNAME timetoapps.app, canonical/hreflang.
+- Fatto: home, pagine app (Payday, Sub, Restructure, Event), Privacy/Termini per app, selettore lingua, CNAME timetoapps.app, canonical/hreflang.
 - Dominio timetoapps.app comprato su Cloudflare. Repo pubblico github.com/peppelisanti/TimeToApps (main), Pages da main /docs con dominio timetoapps.app (2026-11-05). DNS Cloudflare (solo DNS, nuvola grigia) e HTTPS forzato: il sito è online su https://timetoapps.app (www → apex).
 - Traduzioni legali: SOLO `content/legal/payday/privacy.it.html` (pilota, in attesa di approvazione dell'utente su tono e termini).
   Mancano: 6 documenti (payday/sub/restructure × privacy/terms) × 6 lingue (it, de, fr, es, pt-BR, pt-PT), tranne il pilota.
@@ -27,3 +27,7 @@ Leggi README.md per la struttura. Rigenera sempre con `python3 build.py` dopo og
 2. Fatto: Pages (main, /docs, timetoapps.app), certificato per timetoapps.app e www, Enforce HTTPS.
 3. Fatto: Cloudflare DNS (nuvola grigia): 4 record A @ → 185.199.108.153/109.153/110.153/111.153; CNAME www → peppelisanti.github.io.
 4. Completare le traduzioni legali e rigenerare.
+
+- 7 nov 2026: nuovo logo Time to Apps (T bianca, pallino verde #A6E08A) in header, favicon (`assets/img/logo.svg`) e apple-touch-icon (`logo-180.png`); icone app col cerchio verde unico.
+- 7 nov 2026: Time to Event in home e con la sua pagina (APPCOPY["event"] in fondo a strings.py, dalle schede App Store). Le slide di Event esistono solo in italiano: `shots.py` usa `it` come ripiego (FALLBACK) per tutte le lingue finché non ci sono le altre. Home a griglia 2×2.
+- 7 nov 2026: messaggi "in arrivo" (eyebrow) finché le app non sono pubblicate: quando escono, ripristinare l'eyebrow e riempire `ios`/`android` in APPS.

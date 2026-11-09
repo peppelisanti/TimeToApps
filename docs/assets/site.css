@@ -12,7 +12,7 @@ a { text-underline-offset: 2px; }
 
 .top { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between; padding: 20px 0; }
 .top .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 600; font-size: 19px; color: inherit; }
-.top .mark { width: 32px; height: 32px; border-radius: 9px; background: var(--s-dark); color: var(--s-on-dark); display: grid; place-items: center; font-size: 15px; }
+.top .mark { width: 32px; height: 32px; display: block; flex: none; }
 .top nav { display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: center; font-size: 15px; font-weight: 600; }
 .top nav > a { color: var(--s-ink2); text-decoration: none; }
 .top nav > a:hover { color: var(--s-ink); }
@@ -43,6 +43,9 @@ html[data-app] .langs > div a:hover { background: var(--background); }
 .btn.outline { border-color: var(--action); color: var(--link); }
 
 .grid3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.grid2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.grid2 .appcard .shot { width: 52%; }
+.legalgrid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .appcard { text-decoration: none; border-radius: 28px; background: var(--bg); color: var(--fg); padding: 28px 28px 0; display: flex; flex-direction: column; gap: 14px; overflow: hidden; transition: transform .15s; }
 .appcard:hover { transform: translateY(-3px); }
 .appcard:focus-visible { outline: 3px solid var(--s-ink); outline-offset: 3px; }
@@ -97,7 +100,8 @@ html[data-app] .back a { color: var(--text-secondary); }
 html[data-app] .foot { border-color: var(--border); color: var(--text-secondary); }
 
 @media (max-width: 860px) {
-  .grid3, .feats { grid-template-columns: 1fr; }
+  .grid3, .grid2, .legalgrid, .feats { grid-template-columns: 1fr; }
+  .grid2 .appcard .shot { width: 60%; }
   .appcard .shot { width: 60%; }
   .apphero { padding: 32px 24px; margin-bottom: 80px; }
   .shots img { margin-bottom: -110px; }

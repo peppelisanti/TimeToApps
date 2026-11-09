@@ -15,7 +15,9 @@ from strings import LANGS
 
 ROOT = Path(__file__).parent
 IOS = ROOT.parent / "iOS"
-CHECKOUTS = {"payday": "TimeToPayday", "sub": "TimeToSub", "restructure": "TimeToRestructure"}
+CHECKOUTS = {"payday": "TimeToPayday", "sub": "TimeToSub", "restructure": "TimeToRestructure", "event": "TimeToEvent"}
+# Time to Event (nov 2026) ha le slide solo in italiano: le altre lingue usano quelle finché non ci sono.
+FALLBACK = {"event": "it"}
 SLIDES = ("01", "03")
 WIDTH = 480
 
@@ -26,6 +28,8 @@ def main():
         for lang in LANGS:
             for n in SLIDES:
                 src = IOS / repo / "docs" / "app-store" / "final" / "iphone-1206x2622" / lang / f"{n}.png"
+                if not src.exists() and k in FALLBACK:
+                    src = IOS / repo / "docs" / "app-store" / "final" / "iphone-1206x2622" / FALLBACK[k] / f"{n}.png"
                 if not src.exists():
                     missing.append(str(src))
                     continue
