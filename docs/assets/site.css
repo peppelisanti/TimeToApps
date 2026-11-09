@@ -97,6 +97,12 @@ html[data-app] .back a { color: var(--text-secondary); }
 
 .foot { margin-top: 32px; border-top: 1px solid var(--s-line); padding: 24px 0 32px; display: flex; flex-wrap: wrap; gap: 8px 16px; justify-content: space-between; font-size: 14px; color: var(--s-ink2); }
 .foot a { color: inherit; font-weight: 600; text-decoration: none; }
+.foot .reach { display: inline-flex; align-items: center; gap: 12px; }
+.foot .ig { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border: 1px solid var(--s-line); border-radius: 999px; }
+.foot .ig svg { width: 16px; height: 16px; display: block; }
+.foot .ig:hover { color: var(--s-ink); border-color: currentColor; }
+html[data-app] .foot .ig { border-color: var(--border); }
+html[data-app] .foot .ig:hover { color: var(--text); }
 html[data-app] .foot { border-color: var(--border); color: var(--text-secondary); }
 
 @media (max-width: 860px) {
