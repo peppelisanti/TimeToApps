@@ -68,6 +68,7 @@ def page(lang, tail, depth, title, body, theme=None, desc=None):
   <a class="brand" href="{r}{lang}/"><svg class="mark" viewBox="0 0 1024 1024" aria-hidden="true"><rect width="1024" height="1024" rx="230" fill="var(--s-dark)"/><g transform="translate(512 512) scale(1.08) translate(-512 -539)"> <rect x="232" y="212" width="560" height="96" rx="48" fill="var(--s-on-dark)"/> <rect x="367" y="212" width="10" height="96" fill="var(--s-dark)"/> <rect x="647" y="212" width="10" height="96" fill="var(--s-dark)"/> <rect x="464" y="212" width="96" height="600" rx="48" fill="var(--s-on-dark)"/> <circle cx="512" cy="812" r="78" fill="var(--s-dark)"/> <circle cx="512" cy="812" r="54" fill="#A6E08A"/></g></svg>Time to Apps</a>
   <nav>
     <a href="{r}{lang}/#apps">{E(u["nav_apps"])}</a>
+    <a href="{r}{lang}/about/">{E(ABOUT[lang]["nav"])}</a>
     <a href="{r}{lang}/#legal">{E(u["nav_legal"])}</a>
     <a href="{r}{lang}/#contact">{E(u["nav_contact"])}</a>
     {lang_switcher(lang, tail, depth)}
@@ -114,6 +115,8 @@ def home(lang):
 <div class="cta"><a class="btn solid dark" href="#apps">{E(u["cta_apps"])}</a><a class="btn ghost dark" href="#contact">{E(u["cta_contact"])}</a></div></section>
 <section id="apps" class="grid2">{cards}</section>
 <section class="feats"><div><h3>{E(u["f1t"])}</h3><p>{E(u["f1d"])}</p></div><div><h3>{E(u["f2t"])}</h3><p>{E(u["f2d"])}</p></div><div><h3>{E(u["f3t"])}</h3><p>{E(u["f3d"])}</p></div></section>
+<section class="legalbox row"><div><h2>{E(ABOUT[lang]["home_h"])}</h2><p>{E(ABOUT[lang]["home_p"])}</p></div>
+<div class="cta"><a class="btn solid dark" href="about/">{E(ABOUT[lang]["home_cta"])}</a></div></section>
 <section id="legal" class="legalbox"><h2>{E(u["legal_h"])}</h2><p>{E(u["legal_p"])}</p><div class="grid3 legalgrid">{legal}</div></section>
 </main>'''
     return page(lang, "", 1, "Time to Apps", body)
@@ -139,6 +142,26 @@ def app_page(lang, k):
 <div class="cta"><a class="btn action" style="--action:{a["action"]}" href="privacy/">{E(u["privacy"])}</a><a class="btn outline" style="--action:{a["action"]}" href="terms/">{E(u["terms"])}</a></div></section>
 </main>'''
     return page(lang, f"{S(k)}/", 2, f'{a["name"]} – {tag}', body, desc=desc)
+
+def about_page(lang):
+    """Why four apps: the problem each one solves, who it is for, what they share and why they are separate."""
+    u, a = UI[lang], ABOUT[lang]
+    cards = ""
+    for k, (problem, who) in zip(["payday", "sub", "restructure", "event"], a["items"]):
+        app = APPS[k]
+        cards += (f'<div><h3><a href="../{S(k)}/" style="color:{app["action"]}">{E(app["name"])}</a></h3><p>{E(problem)}</p>'
+                  f'<p><strong>{E(a["for_h"])}:</strong> {E(who)}</p></div>')
+    body = f'''<main>
+<p class="back"><a href="../">{E(u["back_all"])}</a></p>
+<section class="hero-home"><h1>{E(a["title"])}</h1><p class="lead">{E(a["lead"])}</p></section>
+<section><h2>{E(a["apps_h"])}</h2></section>
+<section class="feats cards">{cards}</section>
+<section class="legalbox"><h2>{E(a["shared_h"])}</h2><p>{E(a["shared_p"])}</p></section>
+<section class="legalbox"><h2>{E(a["why_h"])}</h2><p>{E(a["why_p"])}</p></section>
+<section class="legalbox"><h2>{E(a["made_h"])}</h2><p>{E(a["made_p"])}</p>
+<div class="cta"><a class="btn solid dark" href="mailto:{EMAIL}">{E(u["cta_contact"])}</a></div></section>
+</main>'''
+    return page(lang, "about/", 2, f'{a["title"]} – Time to Apps', body, desc=a["lead"])
 
 def legal_page(lang, k, doc):
     u, a = UI[lang], APPS[k]
@@ -179,6 +202,7 @@ def main():
     n = 0
     for lang in LANGS:
         write(OUT / lang / "index.html", home(lang)); n += 1
+        write(OUT / lang / "about" / "index.html", about_page(lang)); n += 1
         for k in APPS:
             # The page is also written under each old folder name (`aliases`), so links already given to the
             # stores keep working; its canonical and hreflang point to the current address.
