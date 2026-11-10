@@ -16,7 +16,7 @@ CF_BEACON = """<script type="module" src="https://static.cloudflareinsights.com/
 APPS = {
  "payday": dict(name="Time to Payday", ios=None, android=None, bg="#0F3A2E", fg="#fff", fg2="#C9DDD2", accent="#A6E08A", on_accent="#0F3A2E", action="#136B4A", letter="P"),
  "sub": dict(name="Time to Sub", ios=None, android=None, bg="#081B24", fg="#fff", fg2="#C3D6DD", accent="#F2986E", on_accent="#0D2E3F", action="#17668A", letter="S"),
- "restructure": dict(name="Time to Restructure", ios=None, android=None, bg="#151027", fg="#fff", fg2="#CFC8E8", accent="#F5C451", on_accent="#241C42", action="#4B3BA6", letter="R"),
+ "restructure": dict(name="Time to Renovate", ios=None, android=None, bg="#151027", fg="#fff", fg2="#CFC8E8", accent="#F5C451", on_accent="#241C42", action="#4B3BA6", letter="R"),
  "event": dict(name="Time to Event", ios=None, android=None, bg="#1B2A4A", fg="#fff", fg2="#C5CEE6", accent="#F26B5B", on_accent="#1B2A4A", action="#C8412F", letter="E"),
 }
 E = html.escape

@@ -31,3 +31,5 @@ Leggi README.md per la struttura. Rigenera sempre con `python3 build.py` dopo og
 - 7 nov 2026: nuovo logo Time to Apps (T bianca, pallino verde #A6E08A) in header, favicon (`assets/img/logo.svg`) e apple-touch-icon (`logo-180.png`); icone app col cerchio verde unico.
 - 7 nov 2026: Time to Event in home e con la sua pagina (APPCOPY["event"] in fondo a strings.py, dalle schede App Store). Le slide di Event esistono solo in italiano: `shots.py` usa `it` come ripiego (FALLBACK) per tutte le lingue finché non ci sono le altre. Home a griglia 2×2.
 - 7 nov 2026: messaggi "in arrivo" (eyebrow) finché le app non sono pubblicate: quando escono, ripristinare l'eyebrow e riempire `ios`/`android` in APPS.
+
+- 10 nov 2026: **Time to Restructure diventa Time to Renovate** (nome visibile; slug `restructure`, Bundle ID e cartelle restano). Preparato sul ramo locale `renovate` (qui e in `TimeToRestructure-legal`): fare merge su main e push **solo quando esce la build rinominata**, non mentre la 1.0 è in revisione.
