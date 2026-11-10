@@ -115,7 +115,7 @@ def home(lang):
 <div class="cta"><a class="btn solid dark" href="#apps">{E(u["cta_apps"])}</a><a class="btn ghost dark" href="#contact">{E(u["cta_contact"])}</a></div></section>
 <section id="apps" class="grid2">{cards}</section>
 <section id="why" class="why"><h2>{E(ABOUT[lang]["title"] + "?")}</h2><p class="lead">{E(ABOUT[lang]["lead"])}</p>
-<div class="feats"><div><h3>{E(ABOUT[lang]["why_h"])}</h3><p>{E(ABOUT[lang]["why_p"])}</p></div><div><h3>{E(ABOUT[lang]["shared_h"])}</h3><p>{E(ABOUT[lang]["shared_p"])}</p></div><div><h3>{E(ABOUT[lang]["made_h"])}</h3><p>{E(ABOUT[lang]["made_p"])}</p></div></div></section>
+<div class="feats"><div><h3>{E(ABOUT[lang]["why_h"])}</h3><p>{E(ABOUT[lang]["why_p"])}</p></div><div><h3>{E(ABOUT[lang]["shared_h"])}</h3><p>{E(ABOUT[lang]["shared_p"])}</p></div></div></section>
 <section class="feats"><div><h3>{E(u["f1t"])}</h3><p>{E(u["f1d"])}</p></div><div><h3>{E(u["f2t"])}</h3><p>{E(u["f2d"])}</p></div><div><h3>{E(u["f3t"])}</h3><p>{E(u["f3d"])}</p></div></section>
 <section id="legal" class="legalbox"><h2>{E(u["legal_h"])}</h2><p>{E(u["legal_p"])}</p><div class="grid3 legalgrid">{legal}</div></section>
 </main>'''

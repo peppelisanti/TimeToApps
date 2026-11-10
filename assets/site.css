@@ -117,5 +117,5 @@ html[data-app] .foot { border-color: var(--border); color: var(--text-secondary)
 /* "Why four apps": section of the home page, under the app cards (#why). */
 .why { padding: 24px 0 0; }
 .why h2 { margin: 0; font-size: 28px; font-weight: 600; }
-.why .feats { padding: 28px 0 8px; }
+.why .feats { padding: 28px 0 8px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
 @media (max-width: 760px) { .why .feats { grid-template-columns: 1fr; gap: 24px; } }
