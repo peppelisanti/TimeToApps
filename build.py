@@ -18,6 +18,8 @@ APPS = {
  "sub": dict(name="Time to Sub", ios=None, android=None, bg="#081B24", fg="#fff", fg2="#C3D6DD", accent="#F2986E", on_accent="#0D2E3F", action="#17668A", letter="S"),
  "restructure": dict(name="Time to Renovate", slug="renovate", aliases=["restructure"], ios=None, android=None, bg="#151027", fg="#fff", fg2="#CFC8E8", accent="#F5C451", on_accent="#241C42", action="#4B3BA6", letter="R"),
  "event": dict(name="Time to Event", ios=None, android=None, bg="#1B2A4A", fg="#fff", fg2="#C5CEE6", accent="#F26B5B", on_accent="#1B2A4A", action="#C8412F", letter="E"),
+ # My Pizza Assistant: only its legal pages (reachable by URL), no card in the home page nor app page.
+ "pizza": dict(name="my pizza assistant", slug="my-pizza-assistant", listed=False, ios=None, android=None, bg="#1F3A2C", fg="#fff", fg2="#C9D9CF", accent="#2E8B57", on_accent="#FFFFFF", action="#C8321E", letter="M"),
 }
 E = html.escape
 

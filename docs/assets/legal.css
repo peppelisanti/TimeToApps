@@ -31,6 +31,13 @@
   --action: #C8412F; --on-action: #FFFFFF; --link: #B53A28;
   --accent: #F26B5B; --on-accent: #1B2A4A; --brand-tint: #FFE3D8; --on-brand-tint: #A93221;
 }
+[data-app="pizza"] {
+  --background: #F6F3EC; --surface: #FFFFFF; --border: #DFD9CC;
+  --text: #17201B; --text-secondary: #5D6660;
+  --hero: #1F3A2C; --on-hero: #FFFFFF; --on-hero-secondary: #C9D9CF;
+  --action: #C8321E; --on-action: #FFFFFF; --link: #B52C1A;
+  --accent: #2E8B57; --on-accent: #FFFFFF; --brand-tint: #F8E0DA; --on-brand-tint: #A82916;
+}
 @media (prefers-color-scheme: dark) {
   :root, [data-app="sub"] {
     --background: #061A24; --surface: #0F2733; --border: #22505F;
@@ -59,6 +66,13 @@
     --hero: #1F2F55; --on-hero: #F5EFEA; --on-hero-secondary: #A9B4D0;
     --action: #F26B5B; --on-action: #0E1630; --link: #FF8F80;
     --brand-tint: #223158; --on-brand-tint: #FF9A8B;
+  }
+  [data-app="pizza"] {
+    --background: #0D1411; --surface: #18241E; --border: #33463B;
+    --text: #EFF3EF; --text-secondary: #A3B2A9;
+    --hero: #24402F; --on-hero: #EFF3EF; --on-hero-secondary: #A9C2B3;
+    --action: #FF6A52; --on-action: #0D1411; --link: #FF7A64;
+    --brand-tint: #3A2620; --on-brand-tint: #FF8A76;
   }
 }
 
