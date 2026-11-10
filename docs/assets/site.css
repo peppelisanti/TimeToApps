@@ -113,3 +113,9 @@ html[data-app] .foot { border-color: var(--border); color: var(--text-secondary)
   .shots img { margin-bottom: -110px; }
   .site { padding: 0 16px; }
 }
+
+/* "Why four apps": section of the home page, under the app cards (#why). */
+.why { padding: 24px 0 0; }
+.why h2 { margin: 0; font-size: 28px; font-weight: 600; }
+.why .feats { padding: 28px 0 8px; }
+@media (max-width: 760px) { .why .feats { grid-template-columns: 1fr; gap: 24px; } }
