@@ -16,10 +16,14 @@ CF_BEACON = """<script type="module" src="https://static.cloudflareinsights.com/
 APPS = {
  "payday": dict(name="Time to Payday", ios=None, android=None, bg="#0F3A2E", fg="#fff", fg2="#C9DDD2", accent="#A6E08A", on_accent="#0F3A2E", action="#136B4A", letter="P"),
  "sub": dict(name="Time to Sub", ios=None, android=None, bg="#081B24", fg="#fff", fg2="#C3D6DD", accent="#F2986E", on_accent="#0D2E3F", action="#17668A", letter="S"),
- "restructure": dict(name="Time to Renovate", ios=None, android=None, bg="#151027", fg="#fff", fg2="#CFC8E8", accent="#F5C451", on_accent="#241C42", action="#4B3BA6", letter="R"),
+ "restructure": dict(name="Time to Renovate", slug="renovate", aliases=["restructure"], ios=None, android=None, bg="#151027", fg="#fff", fg2="#CFC8E8", accent="#F5C451", on_accent="#241C42", action="#4B3BA6", letter="R"),
  "event": dict(name="Time to Event", ios=None, android=None, bg="#1B2A4A", fg="#fff", fg2="#C5CEE6", accent="#F26B5B", on_accent="#1B2A4A", action="#C8412F", letter="E"),
 }
 E = html.escape
+
+def S(k):
+    """URL folder of an app: its key unless it was renamed (`slug`). Assets, themes and content/legal keep the key."""
+    return APPS[k].get("slug", k)
 
 def rel(depth): return "../" * depth if depth else "./"
 
@@ -94,7 +98,7 @@ def home(lang):
     for k, a in APPS.items():
         if not a.get("listed", True): continue
         tag, desc, _ = APPCOPY[k][lang]
-        cards += f'''<a class="appcard" href="{k}/" style="--bg:{a["bg"]};--fg:{a["fg"]};--fg2:{a["fg2"]}">
+        cards += f'''<a class="appcard" href="{S(k)}/" style="--bg:{a["bg"]};--fg:{a["fg"]};--fg2:{a["fg2"]}">
   <div class="apphead"><img src="{r}assets/img/{k}-icon.png" alt="" width="64" height="64"><div><div class="appname">{a["name"]}</div><div class="apptag">{E(tag)}</div></div></div>
   <p>{E(desc)}</p>
   <img class="shot" src="{r}assets/img/{lang}/{k}-s01.jpg" alt="" loading="lazy">
@@ -102,7 +106,7 @@ def home(lang):
     legal = ""
     for k, a in APPS.items():
         if not a.get("listed", True): continue
-        legal += f'<div><strong>{a["name"]}</strong><a href="{k}/privacy/" style="color:{a["action"]}">{E(u["privacy"])}</a><a href="{k}/terms/" style="color:{a["action"]}">{E(u["terms"])}</a></div>'
+        legal += f'<div><strong>{a["name"]}</strong><a href="{S(k)}/privacy/" style="color:{a["action"]}">{E(u["privacy"])}</a><a href="{S(k)}/terms/" style="color:{a["action"]}">{E(u["terms"])}</a></div>'
     body = f'''<main>
 <section class="hero-home"><p class="eyebrow">{E(u["eyebrow"])}</p><h1>{E(u["h1"])}</h1><p class="lead">{E(u["lead"])}</p>
 <div class="cta"><a class="btn solid dark" href="#apps">{E(u["cta_apps"])}</a><a class="btn ghost dark" href="#contact">{E(u["cta_contact"])}</a></div></section>
@@ -132,7 +136,7 @@ def app_page(lang, k):
 <section class="legalbox row"><div><h2>{E(u["legal_h"])}</h2><p>{E(u["legal_p"])}</p></div>
 <div class="cta"><a class="btn action" style="--action:{a["action"]}" href="privacy/">{E(u["privacy"])}</a><a class="btn outline" style="--action:{a["action"]}" href="terms/">{E(u["terms"])}</a></div></section>
 </main>'''
-    return page(lang, f"{k}/", 2, f'{a["name"]} – {tag}', body, desc=desc)
+    return page(lang, f"{S(k)}/", 2, f'{a["name"]} – {tag}', body, desc=desc)
 
 def legal_page(lang, k, doc):
     u, a = UI[lang], APPS[k]
@@ -147,9 +151,9 @@ def legal_page(lang, k, doc):
     note = ""
     if lang != "en":
         if translated:
-            note = '<p class="note">%s <a href="../../../en/%s/%s/" hreflang="en">%s</a></p>' % (E(u["tr_note"]), k, doc, E(u["view_en"]))
+            note = '<p class="note">%s <a href="../../../en/%s/%s/" hreflang="en">%s</a></p>' % (E(u["tr_note"]), S(k), doc, E(u["view_en"]))
         else:
-            note = '<p class="note">%s <a href="../../../en/%s/%s/" hreflang="en">%s</a></p>' % (E(u["tr_missing"]), k, doc, E(u["view_en"]))
+            note = '<p class="note">%s <a href="../../../en/%s/%s/" hreflang="en">%s</a></p>' % (E(u["tr_missing"]), S(k), doc, E(u["view_en"]))
     cp = ' aria-current="page"' if doc == "privacy" else ""
     ct = ' aria-current="page"' if doc == "terms" else ""
     body = """<main class="legalpage">
@@ -161,7 +165,7 @@ def legal_page(lang, k, doc):
 %s
 </article>
 </main>""" % ("../" if a.get("listed", True) else "../../", a["name"], cp, E(u["privacy"]), ct, E(u["terms"]), E(title), a["name"], E(u["last_updated"]), fmt_date(date_en, lang), note, text)
-    return page(lang, "%s/%s/" % (k, doc), 3, "%s — %s" % (title, a["name"]), body, theme=k)
+    return page(lang, "%s/%s/" % (S(k), doc), 3, "%s — %s" % (title, a["name"]), body, theme=k)
 
 def write(path, content):
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -174,10 +178,13 @@ def main():
     for lang in LANGS:
         write(OUT / lang / "index.html", home(lang)); n += 1
         for k in APPS:
-            if APPS[k].get("listed", True):
-                write(OUT / lang / k / "index.html", app_page(lang, k)); n += 1
-            for doc in ("privacy", "terms"):
-                write(OUT / lang / k / doc / "index.html", legal_page(lang, k, doc)); n += 1
+            # The page is also written under each old folder name (`aliases`), so links already given to the
+            # stores keep working; its canonical and hreflang point to the current address.
+            for folder in [S(k)] + APPS[k].get("aliases", []):
+                if APPS[k].get("listed", True):
+                    write(OUT / lang / folder / "index.html", app_page(lang, k)); n += 1
+                for doc in ("privacy", "terms"):
+                    write(OUT / lang / folder / doc / "index.html", legal_page(lang, k, doc)); n += 1
     langs_js = str(LANGS).replace("'", '"')
     write(OUT / "index.html", f'''<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Time to Apps</title><meta http-equiv="refresh" content="1;url=en/">
